@@ -1,12 +1,5 @@
-# Stacked Template Flutter Project
+# J. A. C. A - Just another cross-platform app
 
-A template project that uses [Stacked](https://pub.dev/packages/stacked). This project is a starting point for a Flutter application.
-Stacked is a set of Flutter packages that help you build reactive, testable and maintainable apps.
+This is a cross-platform app that uses Flutter and MVVM architecture.
 
-## Getting Started
 
-Change the name of the project using the following command:
-
-```bash
-flutter pub run rename --project-name <new_name>
-```
