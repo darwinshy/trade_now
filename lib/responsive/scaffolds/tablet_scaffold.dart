@@ -2,36 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:justanapp/app/app.size.dart';
 import 'package:justanapp/widget/drawer.dart';
 
-class TabletScaffold extends StatefulWidget {
-  const TabletScaffold({Key? key, required this.child, this.backgroundColor})
+class TabletScaffold extends StatelessWidget {
+  const TabletScaffold(
+      {Key? key,
+      required this.child,
+      this.backgroundColor,
+      this.width,
+      this.isAppBarVisible,
+      this.isDrawerVisible,
+      this.isNoAppBarNoDrawer,
+      this.noSafeAreaMargin})
       : super(key: key);
 
-  final Widget child;
+  final bool? isAppBarVisible;
+  final bool? isDrawerVisible;
+  final bool? isNoAppBarNoDrawer;
+  final bool? noSafeAreaMargin;
+
   final Color? backgroundColor;
 
-  @override
-  State<TabletScaffold> createState() => _TabletScaffoldState();
-}
+  final double? width;
 
-class _TabletScaffoldState extends State<TabletScaffold> {
+  final Widget child;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:
-          widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
-      // appBar: AppBar(
-      //     leading: Navigator.canPop(context)
-      //         ? IconButton(
-      //             icon: const Icon(Icons.arrow_back_ios),
-      //             onPressed: () => Navigator.pop(context),
-      //           )
-      //         : null),
-      drawer: const SideDrawer(),
+          backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
+      appBar: isNoAppBarNoDrawer != null
+          ? null
+          : isAppBarVisible != null
+              ? null
+              : AppBar(),
+      drawer: isNoAppBarNoDrawer != null
+          ? null
+          : isDrawerVisible != null
+              ? null
+              : const SideDrawer(),
       body: SafeArea(
-        minimum: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
+        minimum: noSafeAreaMargin != null
+            ? EdgeInsets.zero
+            : const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Center(
-            child: SizedBox(
-                width: SizeConfig.screenWidth! * 0.8, child: widget.child)),
+          child: SizedBox(
+              height: SizeConfig.screenHeight!,
+              width: width ?? SizeConfig.screenWidth! * 0.8,
+              child: child),
+        ),
       ),
     );
   }

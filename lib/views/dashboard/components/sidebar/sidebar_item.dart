@@ -45,14 +45,16 @@ class _SideBarItemState extends State<SideBarItem> {
               size: 14,
             ),
             const SizedBox(width: 20),
-            Text(
-              widget.text,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w900,
-                color: widget.isSelected
-                    ? Theme.of(context).backgroundColor.withOpacity(0.7)
-                    : Theme.of(context).backgroundColor.withOpacity(0.4),
+            Expanded(
+              child: Text(
+                widget.text,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w900,
+                  color: widget.isSelected
+                      ? Theme.of(context).backgroundColor.withOpacity(0.7)
+                      : Theme.of(context).backgroundColor.withOpacity(0.4),
+                ),
               ),
             )
           ],

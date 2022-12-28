@@ -21,7 +21,11 @@ class Dashboard extends StatelessWidget {
           width: double.infinity,
           noSafeAreaMargin: true,
           child: DashboardView()),
-      tabletScaffold: TabletScaffold(child: DashboardView()),
+      tabletScaffold: TabletScaffold(
+          isNoAppBarNoDrawer: true,
+          width: double.infinity,
+          noSafeAreaMargin: true,
+          child: DashboardView()),
     );
   }
 }
@@ -31,12 +35,18 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.nonReactive(
+    return ViewModelBuilder.reactive(
       viewModelBuilder: () => DashboardViewModel(),
       builder: (context, model, _) => Row(
-        children: const [
-          Expanded(flex: 2, child: SideBar()),
-          Expanded(flex: 8, child: DashboardMain()),
+        children: [
+          Expanded(
+            flex: model.isSideBarOpen ? 4 : 1,
+            child: const SideBarView(),
+          ),
+          Expanded(
+            flex: model.isSideBarOpen ? 14 : 22,
+            child: const DashboardMain(),
+          ),
         ],
       ),
     );

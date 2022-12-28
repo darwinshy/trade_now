@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 
 class DashboardViewModel extends BaseViewModel {
   String sideBarActiveId = 'home';
+  bool isSideBarOpen = true;
 
   List<Map<String, Object>> sideBarItemsQuicks = [
     {
@@ -62,6 +63,11 @@ class DashboardViewModel extends BaseViewModel {
       'icon': Icons.link_rounded,
     },
   ];
+
+  void updateSideBarStatus() {
+    isSideBarOpen = !isSideBarOpen;
+    notifyListeners();
+  }
 
   void updateSideBarItems(String id) {
     sideBarActiveId = id;

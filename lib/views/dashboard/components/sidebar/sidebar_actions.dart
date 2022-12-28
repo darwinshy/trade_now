@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:justanapp/views/dashboard/dash_vm.dart';
-import 'package:justanapp/widget/side_bar_item.dart';
+import 'package:justanapp/views/dashboard/components/sidebar/sidebar_item.dart';
 import 'package:stacked/stacked.dart';
 
 class SideBarActionsList extends StatelessWidget {
@@ -15,28 +15,25 @@ class SideBarActionsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-                fontSize: 10,
-                color: Theme.of(context).primaryColor.withOpacity(0.5)),
-          ),
-          const SizedBox(height: 10),
-          list
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+              fontSize: 10,
+              color: Theme.of(context).primaryColor.withOpacity(0.5)),
+        ),
+        const SizedBox(height: 10),
+        list
+      ],
     );
   }
 }
 
 class SideBarActionsListView extends ViewModelWidget<DashboardViewModel> {
   const SideBarActionsListView({Key? key, required this.list})
-      : super(key: key, reactive: true);
+      : super(key: key);
 
   final List list;
 
