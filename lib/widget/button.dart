@@ -33,24 +33,23 @@ class RoundedTextButton extends StatelessWidget {
         height: height,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
-            color: color ?? Theme.of(context).primaryColor.withOpacity(0.8),
-            borderRadius: BorderRadius.circular(10)),
-        child: !isLoading
-            ? Center(
-                child: child ??
-                    Text(text!,
-                        style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-              )
-            : Center(
-                child: SizedBox(
-                    height: getProportionateScreenHeight(10),
-                    width: getProportionateScreenHeight(10),
-                    child: const CircularProgressIndicator(
-                        color: Colors.white, strokeWidth: 2)),
-              ),
+          color: color ?? Theme.of(context).primaryColor.withOpacity(0.8),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Center(
+          child: !isLoading
+              ? child ??
+                  Text(
+                    text!,
+                    style: TextStyle(fontSize: fontSize, color: Colors.white),
+                  )
+              : SizedBox(
+                  height: getProportionateScreenHeight(10),
+                  width: getProportionateScreenHeight(10),
+                  child: const CircularProgressIndicator(
+                      color: Colors.white, strokeWidth: 2),
+                ),
+        ),
       ),
     );
   }

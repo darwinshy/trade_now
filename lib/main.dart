@@ -36,7 +36,6 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'JustAnApp',
       theme: regularTheme,
-      darkTheme: darkTheme,
       themeMode: themeMode,
       debugShowCheckedModeBanner: false,
       initialRoute: Root.routeName,
