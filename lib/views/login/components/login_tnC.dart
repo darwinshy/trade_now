@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:justanapp/views/login/login_vm.dart';
+import 'package:stacked/stacked.dart';
 
-class LoginTnCPnP extends StatelessWidget {
-  const LoginTnCPnP({Key? key}) : super(key: key);
+class LoginTermsAndPolicies extends ViewModelWidget<LoginViewModel> {
+  const LoginTermsAndPolicies({Key? key}) : super(key: key, reactive: false);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, LoginViewModel viewModel) {
     return Expanded(
       flex: 1,
       child: Row(

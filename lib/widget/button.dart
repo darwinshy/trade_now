@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:justanapp/app/app.size.dart';
-import 'package:justanapp/app/app.size.dart';
 
 class RoundedTextButton extends StatelessWidget {
   const RoundedTextButton({
@@ -26,15 +25,15 @@ class RoundedTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: press,
+    return InkWell(
+      onTap: press,
       child: Container(
         width: width,
         height: height,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: color ?? Theme.of(context).primaryColor.withOpacity(0.8),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Center(
           child: !isLoading

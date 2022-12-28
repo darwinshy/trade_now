@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:justanapp/app/app.locator.dart';
-import 'package:justanapp/views/login/login_v.dart';
-import 'package:justanapp/views/onboarding/onboard_v.dart';
+import 'package:justanapp/views/dashboard/dash_v.dart';
 import 'package:stacked/stacked.dart';
 import 'package:justanapp/app/app.size.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -14,7 +13,8 @@ class RootViewModel extends BaseViewModel {
   // ___________________________________________________________________________
 
   Future<void> handleStartupLogic() async {
-    _navigationService.clearStackAndShow(Onboarding.routeName);
+    // _navigationService.clearStackAndShow(Onboarding.routeName);
+    _navigationService.clearStackAndShow(Dashboard.routeName);
   }
 }
 

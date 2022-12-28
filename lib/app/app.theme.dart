@@ -9,7 +9,7 @@ ThemeData darkTheme =
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   backgroundColor: Colors.black,
-  primaryColor: const Color.fromRGBO(3, 37, 39, 1),
+  primaryColor: const Color.fromARGB(255, 0, 119, 125),
   appBarTheme: const AppBarTheme(
     elevation: 0,
     color: Colors.transparent,

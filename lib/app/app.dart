@@ -1,3 +1,4 @@
+import 'package:justanapp/views/dashboard/dash_v.dart';
 import 'package:justanapp/views/login/login_v.dart';
 import 'package:justanapp/views/onboarding/onboard_v.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -32,6 +33,7 @@ import 'package:stacked_themes/stacked_themes.dart';
     StackedRoute<dynamic>(path: Root.routeName, page: Root),
     StackedRoute<dynamic>(path: Onboarding.routeName, page: Onboarding),
     StackedRoute<dynamic>(path: Login.routeName, page: Login),
+    StackedRoute<dynamic>(path: Dashboard.routeName, page: Dashboard),
   ],
 )
 class App {}

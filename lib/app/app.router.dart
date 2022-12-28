@@ -7,11 +7,12 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart';
 import 'package:justanapp/root.dart' as _i2;
+import 'package:justanapp/views/dashboard/dash_v.dart' as _i5;
 import 'package:justanapp/views/login/login_v.dart' as _i4;
 import 'package:justanapp/views/onboarding/onboard_v.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked/stacked_annotations.dart';
-import 'package:stacked_services/stacked_services.dart' as _i5;
+import 'package:stacked_services/stacked_services.dart' as _i6;
 
 class Routes {
   static const root = 'root';
@@ -20,10 +21,13 @@ class Routes {
 
   static const login = 'login';
 
+  static const dashboard = 'dashboard';
+
   static const all = <String>{
     root,
     onboarding,
     login,
+    dashboard,
   };
 }
 
@@ -40,6 +44,10 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.login,
       page: _i4.Login,
+    ),
+    _i1.RouteDef(
+      Routes.dashboard,
+      page: _i5.Dashboard,
     ),
   ];
 
@@ -62,6 +70,12 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
+    _i5.Dashboard: (data) {
+      return MaterialPageRoute<StackedRoute<dynamic>>(
+        builder: (context) => const _i5.Dashboard(),
+        settings: data,
+      );
+    },
   };
 
   @override
@@ -70,7 +84,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i5.NavigationService {
+extension NavigatorStateExtension on _i6.NavigationService {
   Future<StackedRoute<dynamic>?> navigateToRoot([
     int? routerId,
     bool preventDuplicates = true,
@@ -107,6 +121,20 @@ extension NavigatorStateExtension on _i5.NavigationService {
         transition,
   ]) async {
     return navigateTo<StackedRoute<dynamic>?>(Routes.login,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<StackedRoute<dynamic>?> navigateToDashboard([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<StackedRoute<dynamic>?>(Routes.dashboard,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

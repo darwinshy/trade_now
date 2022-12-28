@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:justanapp/app/app.size.dart';
-import 'package:justanapp/views/login/components/login_tnC.dart';
+import 'package:justanapp/views/login/components/login_tnc.dart';
 import 'package:justanapp/views/login/login_vm.dart';
 import 'package:justanapp/widget/button.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginForm extends ViewModelWidget<LoginViewModel> {
-  const LoginForm({Key? key}) : super(key: key, reactive: false);
+  const LoginForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, LoginViewModel viewModel) {
@@ -109,7 +109,7 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
             ),
           ),
         ),
-        const LoginTnCPnP(),
+        const LoginTermsAndPolicies(),
       ],
     );
   }
