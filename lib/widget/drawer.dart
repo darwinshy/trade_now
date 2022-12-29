@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
 
 List<IconButton> drawerItems = <IconButton>[
   IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
@@ -13,8 +12,8 @@ class SideDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: SizeConfig.screenWidth! * 0.04,
-      height: getProportionateScreenHeight(200),
+      width: MediaQuery.of(context).size.width * 0.04,
+      height: 200,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(

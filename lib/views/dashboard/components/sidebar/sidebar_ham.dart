@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
+
 import 'package:justanapp/views/dashboard/dash_vm.dart';
 import 'package:stacked/stacked.dart';
 
@@ -9,7 +9,7 @@ class HamburgarIcon extends ViewModelWidget<DashboardViewModel> {
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
     return Positioned(
-      top: SizeConfig.screenHeight! / 1.15,
+      top: MediaQuery.of(context).size.height / 1.15,
       right: 0,
       child: Container(
         decoration: BoxDecoration(

@@ -14,10 +14,14 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ResponsiveLayout(
-      mobileScaffold: MobileScaffold(child: LoginView()),
-      desktopScaffold: DesktopScaffold(child: LoginView()),
-      tabletScaffold: TabletScaffold(child: LoginView()),
+    return ResponsiveLayout(
+      mobileScaffold: const MobileScaffold(child: LoginView()),
+      desktopScaffold: DesktopScaffold(
+          width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.8,
+          isDrawerVisible: false,
+          child: const LoginView()),
+      tabletScaffold: const TabletScaffold(child: LoginView()),
     );
   }
 }
@@ -34,11 +38,9 @@ class LoginView extends StatelessWidget {
         child: Row(
           children: [
             const Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  child: LoginForm(),
-                )),
+              flex: 1,
+              child: LoginForm(),
+            ),
             if (!model.isMobile)
               const Expanded(
                 flex: 1,

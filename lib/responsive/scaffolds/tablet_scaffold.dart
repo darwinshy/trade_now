@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
 import 'package:justanapp/widget/drawer.dart';
 
 class TabletScaffold extends StatelessWidget {
@@ -46,8 +45,8 @@ class TabletScaffold extends StatelessWidget {
             : const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Center(
           child: SizedBox(
-              height: SizeConfig.screenHeight!,
-              width: width ?? SizeConfig.screenWidth! * 0.8,
+              height: MediaQuery.of(context).size.height,
+              width: width ?? MediaQuery.of(context).size.width * 0.8,
               child: child),
         ),
       ),

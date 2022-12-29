@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
 import 'package:justanapp/responsive/responsive_layout.dart';
 import 'package:justanapp/responsive/scaffolds/desktop_scaffold.dart';
 import 'package:justanapp/responsive/scaffolds/mobile_scaffold.dart';
@@ -17,7 +16,8 @@ class Onboarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ResponsiveLayout(
         mobileScaffold: MobileScaffold(child: OnboardingView()),
-        desktopScaffold: DesktopScaffold(child: OnboardingView()),
+        desktopScaffold:
+            DesktopScaffold(isDrawerVisible: false, child: OnboardingView()),
         tabletScaffold: TabletScaffold(child: OnboardingView()));
   }
 }
@@ -30,54 +30,66 @@ class OnboardingView extends StatelessWidget {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => OnboardingViewModel(),
       builder: (context, model, child) => Container(
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         width: model.isMobile
-            ? getProportionateScreenWidth(300)
-            : getProportionateScreenWidth(100),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ? MediaQuery.of(context).size.width
+            : MediaQuery.of(context).size.width * 0.5,
+        child: Flex(
+          direction: model.isMobile ? Axis.vertical : Axis.horizontal,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              flex: 1,
-              child: Lottie.asset(
-                'assets/images/onboarding.json',
-                width: getProportionateScreenWidth(300),
-                height: getProportionateScreenHeight(300),
-              ),
-            ),
-            Expanded(
-              flex: 1,
+              flex: 2,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Lottie.asset('assets/images/onboarding.json',
+                      height: MediaQuery.of(context).size.height * 0.3),
+                  const SizedBox(height: 10),
                   const Text(
-                    'Discover the best \nrestaurants in your area',
+                    'Trade stocks, crypto and \nmany more',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 32),
+                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 32),
                   ),
-                  SizedBox(
-                    height: getProportionateScreenHeight(5),
-                  ),
+                  const SizedBox(height: 10),
                   Text(
-                    'Healthy food, fast delivery, and easy payment',
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut labore et dolore magna aliqua.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Theme.of(context).primaryColor.withOpacity(0.5),
+                        color: Theme.of(context).primaryColor.withOpacity(0.7),
                         fontSize: 16),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              width: model.isMobile ? null : getProportionateScreenWidth(150),
-              height: getProportionateScreenHeight(50),
-              child: RoundedTextButton(
-                  text: 'Continue',
-                  isLoading: false,
-                  fontSize: 14,
-                  press: model.navigateToLogin),
-            )
+            if (model.isMobile)
+              SizedBox(
+                width: model.isMobile
+                    ? MediaQuery.of(context).size.width
+                    : MediaQuery.of(context).size.width * 0.5,
+                height: 50,
+                child: RoundedTextButton(
+                    text: 'Continue',
+                    isLoading: false,
+                    fontSize: 14,
+                    press: model.navigateToLogin),
+              )
+            else
+              Expanded(
+                flex: 1,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor.withOpacity(0.001),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_forward_ios),
+                    onPressed: model.navigateToLogin,
+                  ),
+                ),
+              ),
           ],
         ),
       ),

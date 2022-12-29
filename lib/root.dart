@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:justanapp/app/app.locator.dart';
 import 'package:justanapp/views/dashboard/dash_v.dart';
+import 'package:justanapp/views/onboarding/onboard_v.dart';
 import 'package:stacked/stacked.dart';
-import 'package:justanapp/app/app.size.dart';
+
 import 'package:stacked_services/stacked_services.dart';
 
 class RootViewModel extends BaseViewModel {
@@ -24,9 +25,6 @@ class Root extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// * Initialize the size config
-    SizeConfig().init(context);
-
     return ViewModelBuilder<RootViewModel>.reactive(
       builder: (_, __, ___) => const Scaffold(),
       onModelReady: (RootViewModel model) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
 import 'package:justanapp/widget/drawer.dart';
 
 class DesktopScaffold extends StatelessWidget {
@@ -11,7 +10,8 @@ class DesktopScaffold extends StatelessWidget {
       this.isAppBarVisible,
       this.isDrawerVisible,
       this.isNoAppBarNoDrawer,
-      this.noSafeAreaMargin})
+      this.noSafeAreaMargin,
+      this.height})
       : super(key: key);
 
   final bool? isAppBarVisible;
@@ -22,6 +22,7 @@ class DesktopScaffold extends StatelessWidget {
   final Color? backgroundColor;
 
   final double? width;
+  final double? height;
 
   final Widget child;
 
@@ -32,22 +33,18 @@ class DesktopScaffold extends StatelessWidget {
           backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       appBar: isNoAppBarNoDrawer != null
           ? null
-          : isAppBarVisible != null
-              ? null
-              : AppBar(),
+          : (isAppBarVisible != null ? null : AppBar()),
       drawer: isNoAppBarNoDrawer != null
           ? null
-          : isDrawerVisible != null
-              ? null
-              : const SideDrawer(),
+          : (isDrawerVisible != null ? null : const SideDrawer()),
       body: SafeArea(
         minimum: noSafeAreaMargin != null
             ? EdgeInsets.zero
             : const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Center(
           child: SizedBox(
-              height: SizeConfig.screenHeight!,
-              width: width ?? SizeConfig.screenWidth! * 0.8,
+              height: height ?? MediaQuery.of(context).size.height,
+              width: width ?? MediaQuery.of(context).size.width,
               child: child),
         ),
       ),

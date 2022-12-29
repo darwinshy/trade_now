@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
 
 class MobileScaffold extends StatefulWidget {
   const MobileScaffold({Key? key, required this.child}) : super(key: key);
@@ -16,10 +15,8 @@ class _MobileScaffoldState extends State<MobileScaffold> {
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-          minimum: const EdgeInsets.symmetric(vertical: 10),
           child: SizedBox(
-            width: double.infinity,
-            height: SizeConfig.screenHeight! -
+            height: MediaQuery.of(context).size.height -
                 (MediaQuery.of(context).viewPadding.bottom +
                     MediaQuery.of(context).viewPadding.top),
             child: widget.child,

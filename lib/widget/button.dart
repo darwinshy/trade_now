@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
 
 class RoundedTextButton extends StatelessWidget {
   const RoundedTextButton({
@@ -42,10 +41,10 @@ class RoundedTextButton extends StatelessWidget {
                     text!,
                     style: TextStyle(fontSize: fontSize, color: Colors.white),
                   )
-              : SizedBox(
-                  height: getProportionateScreenHeight(10),
-                  width: getProportionateScreenHeight(10),
-                  child: const CircularProgressIndicator(
+              : const SizedBox(
+                  height: 10,
+                  width: 10,
+                  child: CircularProgressIndicator(
                       color: Colors.white, strokeWidth: 2),
                 ),
         ),

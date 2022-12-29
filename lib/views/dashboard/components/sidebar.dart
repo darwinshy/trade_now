@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/app/app.size.dart';
+
 import 'package:justanapp/views/dashboard/components/sidebar/sidebar_actions.dart';
 import 'package:justanapp/views/dashboard/components/sidebar/sidebar_ham.dart';
 import 'package:justanapp/views/dashboard/components/sidebar/sidebar_top.dart';
@@ -25,7 +25,7 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
   Widget build(BuildContext context, DashboardViewModel viewModel) {
     return AnimatedCrossFade(
       firstChild: Container(
-        height: SizeConfig.screenHeight,
+        height: MediaQuery.of(context).size.height,
         color: Theme.of(context).primaryColor.withOpacity(0.1),
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
         margin: const EdgeInsets.only(right: 10),
