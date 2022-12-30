@@ -11,6 +11,7 @@ class RoundedTextButton extends StatelessWidget {
     this.width,
     this.height,
     required this.isLoading,
+    this.fontColor,
   }) : super(key: key);
 
   final String? text;
@@ -21,10 +22,12 @@ class RoundedTextButton extends StatelessWidget {
   final Color? color;
   final double? width;
   final double? height;
+  final Color? fontColor;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: BorderRadius.circular(8),
       onTap: press,
       child: Container(
         width: width,
@@ -39,7 +42,8 @@ class RoundedTextButton extends StatelessWidget {
               ? child ??
                   Text(
                     text!,
-                    style: TextStyle(fontSize: fontSize, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: fontSize, color: fontColor ?? Colors.white),
                   )
               : const SizedBox(
                   height: 10,

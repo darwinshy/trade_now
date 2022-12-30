@@ -5,6 +5,14 @@ class DashboardViewModel extends BaseViewModel {
   String sideBarActiveId = 'home';
   bool isSideBarOpen = true;
 
+  List<Tab> tabs = const [
+    Tab(text: 'Summary'),
+    Tab(text: 'Charts'),
+    Tab(text: 'Profile'),
+    Tab(text: 'Analysis'),
+    Tab(text: 'Settings')
+  ];
+
   List<Map<String, Object>> sideBarItemsQuicks = [
     {
       'id': 'globalSearch',

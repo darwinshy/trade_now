@@ -24,6 +24,7 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
   Widget build(BuildContext context, DashboardViewModel viewModel) {
     return AnimatedCrossFade(
       firstChild: Container(
+        width: MediaQuery.of(context).size.width * 0.2,
         height: MediaQuery.of(context).size.height,
         color: Theme.of(context).primaryColor.withOpacity(0.1),
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
@@ -58,15 +59,18 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
           ],
         ),
       ),
-      secondChild: Container(),
+      secondChild: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.01,
+        height: MediaQuery.of(context).size.height,
+      ),
       crossFadeState: viewModel.isSideBarOpen
           ? CrossFadeState.showFirst
           : CrossFadeState.showSecond,
       firstCurve: Curves.easeInOutCubic,
       secondCurve: Curves.easeInOutCubic,
       sizeCurve: Curves.easeInOutCubic,
-      reverseDuration: const Duration(milliseconds: 100),
-      duration: const Duration(milliseconds: 100),
+      reverseDuration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
   }
 }

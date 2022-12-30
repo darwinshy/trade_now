@@ -66,15 +66,14 @@ class OnboardingView extends StatelessWidget {
             ),
             if (model.isMobile)
               SizedBox(
-                width: model.isMobile
-                    ? MediaQuery.of(context).size.width
-                    : MediaQuery.of(context).size.width * 0.5,
+                width: MediaQuery.of(context).size.width,
                 height: 50,
                 child: RoundedTextButton(
-                    text: 'Continue',
-                    isLoading: false,
-                    fontSize: 14,
-                    press: model.navigateToLogin),
+                  text: 'Continue',
+                  isLoading: false,
+                  fontSize: 14,
+                  press: model.navigateToLogin,
+                ),
               )
             else
               Expanded(

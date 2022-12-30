@@ -41,6 +41,14 @@ ThemeData lightTheme = ThemeData(
       backgroundColor: MaterialStateProperty.all(Colors.white),
     ),
   ),
+  tabBarTheme: const TabBarTheme(
+    labelColor: Colors.black,
+    unselectedLabelColor: Colors.black54,
+    labelPadding: EdgeInsets.zero,
+    indicator: UnderlineTabIndicator(
+      borderSide: BorderSide(width: 2, color: Color.fromARGB(255, 0, 119, 125)),
+    ),
+  ),
   textTheme: GoogleFonts.poppinsTextTheme(),
   progressIndicatorTheme: const ProgressIndicatorThemeData(color: Colors.black),
   colorScheme: ColorScheme.fromSwatch()
