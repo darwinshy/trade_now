@@ -14,11 +14,13 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return ResponsiveLayout(
       mobileScaffold: const MobileScaffold(child: LoginView()),
       desktopScaffold: DesktopScaffold(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.8,
+          width: width * 0.8,
+          height: height * 0.8,
           isDrawerVisible: false,
           child: const LoginView()),
       tabletScaffold: const TabletScaffold(child: LoginView()),

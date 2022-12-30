@@ -11,6 +11,8 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
 
   @override
   Widget build(BuildContext context, LoginViewModel viewModel) {
+    double width = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
@@ -21,9 +23,7 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
             flex: 24,
             child: Center(
               child: SizedBox(
-                width: viewModel.isMobile
-                    ? double.infinity
-                    : MediaQuery.of(context).size.width * 0.2,
+                width: viewModel.isMobile ? double.infinity : width * 0.2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,

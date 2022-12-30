@@ -9,6 +9,8 @@ class LoginArt extends ViewModelWidget<LoginViewModel> {
 
   @override
   Widget build(BuildContext context, LoginViewModel viewModel) {
+    double width = MediaQuery.of(context).size.width;
+
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor.withOpacity(0.001),
@@ -18,7 +20,7 @@ class LoginArt extends ViewModelWidget<LoginViewModel> {
       ),
       child: Center(
         child: Lottie.asset('assets/images/127883-turkey.json',
-            width: MediaQuery.of(context).size.width * 0.2),
+            width: width * 0.2),
       ),
     );
   }

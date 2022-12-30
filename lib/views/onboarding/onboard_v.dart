@@ -27,13 +27,14 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => OnboardingViewModel(),
       builder: (context, model, child) => Container(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        width: model.isMobile
-            ? MediaQuery.of(context).size.width
-            : MediaQuery.of(context).size.width * 0.5,
+        width: model.isMobile ? width : width * 0.5,
         child: Flex(
           direction: model.isMobile ? Axis.vertical : Axis.horizontal,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +47,7 @@ class OnboardingView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Lottie.asset('assets/images/onboarding.json',
-                      height: MediaQuery.of(context).size.height * 0.3),
+                      height: height * 0.3),
                   const SizedBox(height: 10),
                   const Text(
                     'Trade stocks, crypto and \nmany more',

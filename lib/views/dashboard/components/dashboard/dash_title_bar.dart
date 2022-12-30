@@ -6,6 +6,9 @@ class DasbboardTitleBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,7 +38,7 @@ class DasbboardTitleBar extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+            SizedBox(width: width * 0.02),
             RoundedTextButton(
               text: 'Add to Watchlist',
               fontSize: 12,

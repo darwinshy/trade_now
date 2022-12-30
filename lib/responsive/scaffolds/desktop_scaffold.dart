@@ -28,6 +28,9 @@ class DesktopScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double cwidth = MediaQuery.of(context).size.width;
+    double cheight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor:
           backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
@@ -42,9 +45,7 @@ class DesktopScaffold extends StatelessWidget {
             ? EdgeInsets.zero
             : const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: SizedBox(
-            height: height ?? MediaQuery.of(context).size.height,
-            width: width ?? MediaQuery.of(context).size.width,
-            child: child),
+            height: height ?? cheight, width: width ?? cwidth, child: child),
       ),
     );
   }

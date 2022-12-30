@@ -7,12 +7,12 @@ class DashboardTabItems extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
+    double width = MediaQuery.of(context).size.width;
+
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.3,
+      width: width * 0.3,
       child: DefaultTabController(
-        length: viewModel.tabs.length,
-        child: TabBar(tabs: viewModel.tabs),
-      ),
+          length: viewModel.tabs.length, child: TabBar(tabs: viewModel.tabs)),
     );
   }
 }

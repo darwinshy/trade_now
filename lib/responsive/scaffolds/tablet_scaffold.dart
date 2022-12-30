@@ -26,6 +26,8 @@ class TabletScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double cwidth = MediaQuery.of(context).size.width;
+    double cheight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor:
           backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
@@ -45,9 +47,7 @@ class TabletScaffold extends StatelessWidget {
             : const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Center(
           child: SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: width ?? MediaQuery.of(context).size.width * 0.8,
-              child: child),
+              height: cheight, width: width ?? cwidth * 0.8, child: child),
         ),
       ),
     );

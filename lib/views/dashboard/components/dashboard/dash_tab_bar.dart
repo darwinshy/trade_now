@@ -9,6 +9,9 @@ class DashboardTabBar extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Container(
       decoration: BoxDecoration(
         border: Border(
@@ -16,12 +19,12 @@ class DashboardTabBar extends ViewModelWidget<DashboardViewModel> {
               color: Theme.of(context).primaryColor.withOpacity(0.1)),
         ),
       ),
-      width: MediaQuery.of(context).size.width * 0.45,
+      width: width * 0.45,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const DashboardHeadText(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+          SizedBox(height: height * 0.05),
           const DashboardTabItems(),
         ],
       ),

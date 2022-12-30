@@ -11,8 +11,10 @@ class SideDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
-      width: MediaQuery.of(context).size.width * 0.04,
+      width: width * 0.04,
       height: 200,
       decoration: const BoxDecoration(
         color: Colors.white,

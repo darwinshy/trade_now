@@ -12,15 +12,14 @@ class MobileScaffold extends StatefulWidget {
 class _MobileScaffoldState extends State<MobileScaffold> {
   @override
   Widget build(BuildContext context) {
+    // double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    double appBarHeight = AppBar().preferredSize.height;
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height -
-                (MediaQuery.of(context).viewPadding.bottom +
-                    MediaQuery.of(context).viewPadding.top),
-            child: widget.child,
-          ),
+          child: SizedBox(height: height - appBarHeight, child: widget.child),
         ),
       ),
     );

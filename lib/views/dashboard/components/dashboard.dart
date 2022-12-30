@@ -11,6 +11,9 @@ class DashboardMain extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
+    // double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Expanded(
       child: Container(
         margin: const EdgeInsets.only(right: 15),
@@ -19,7 +22,7 @@ class DashboardMain extends ViewModelWidget<DashboardViewModel> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const DasbboardTitleBar(),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+            SizedBox(height: height * 0.04),
             Flex(
               direction: Axis.horizontal,
               children: const [

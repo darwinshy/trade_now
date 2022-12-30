@@ -7,8 +7,10 @@ class HamburgarIcon extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
+    double height = MediaQuery.of(context).size.height;
+
     return Positioned(
-      top: MediaQuery.of(context).size.height / 1.15,
+      top: height / 1.15,
       right: viewModel.isSideBarOpen ? 20 : -10,
       child: Container(
         decoration: BoxDecoration(

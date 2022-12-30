@@ -22,10 +22,13 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return AnimatedCrossFade(
       firstChild: Container(
-        width: MediaQuery.of(context).size.width * 0.2,
-        height: MediaQuery.of(context).size.height,
+        width: width * 0.2,
+        height: height,
         color: Theme.of(context).primaryColor.withOpacity(0.1),
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
         margin: const EdgeInsets.only(right: 15),
@@ -33,24 +36,18 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
           shrinkWrap: true,
           children: [
             const SideBarTop(),
-            const SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: height * 0.05),
             SideBarActionsList(
               title: 'GENERAL',
               list:
                   SideBarActionsListView(list: viewModel.sideBarItemsGenerals),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: height * 0.05),
             SideBarActionsList(
               title: 'QUICKS',
               list: SideBarActionsListView(list: viewModel.sideBarItemsQuicks),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: height * 0.05),
             SideBarActionsList(
               title: 'SHORCUTS',
               list:
@@ -59,10 +56,7 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
           ],
         ),
       ),
-      secondChild: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.01,
-        height: MediaQuery.of(context).size.height,
-      ),
+      secondChild: SizedBox(width: width * 0.01, height: height),
       crossFadeState: viewModel.isSideBarOpen
           ? CrossFadeState.showFirst
           : CrossFadeState.showSecond,
