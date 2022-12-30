@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:justanapp/views/dashboard/dash_vm.dart';
 import 'package:stacked/stacked.dart';
 
@@ -10,11 +9,12 @@ class HamburgarIcon extends ViewModelWidget<DashboardViewModel> {
   Widget build(BuildContext context, DashboardViewModel viewModel) {
     return Positioned(
       top: MediaQuery.of(context).size.height / 1.15,
-      right: 0,
+      right: viewModel.isSideBarOpen ? 20 : -10,
       child: Container(
         decoration: BoxDecoration(
             color: Theme.of(context).primaryColor.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(20)),
+            borderRadius:
+                BorderRadius.circular(viewModel.isSideBarOpen ? 20 : 0)),
         child: IconButton(
           splashRadius: 20,
           onPressed: viewModel.updateSideBarStatus,

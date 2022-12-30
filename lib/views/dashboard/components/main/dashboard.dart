@@ -7,8 +7,12 @@ class DashboardMain extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
-    return Center(
-        child: Text(viewModel.sideBarActiveId.toString(),
-            style: Theme.of(context).textTheme.headline1));
+    return Container(
+      margin: const EdgeInsets.only(right: 15, top: 15, bottom: 15),
+      color: Colors.blue,
+      child: Center(
+          child: Text(viewModel.sideBarActiveId.toString(),
+              style: Theme.of(context).textTheme.headline1)),
+    );
   }
 }

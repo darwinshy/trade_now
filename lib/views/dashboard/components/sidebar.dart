@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:justanapp/views/dashboard/components/sidebar/sidebar_actions.dart';
 import 'package:justanapp/views/dashboard/components/sidebar/sidebar_ham.dart';
 import 'package:justanapp/views/dashboard/components/sidebar/sidebar_top.dart';
@@ -28,36 +27,33 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
         height: MediaQuery.of(context).size.height,
         color: Theme.of(context).primaryColor.withOpacity(0.1),
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
-        margin: const EdgeInsets.only(right: 10),
-        child: Column(
+        margin: const EdgeInsets.only(right: 15),
+        child: ListView(
+          shrinkWrap: true,
           children: [
-            const Expanded(
-              flex: 2,
-              child: SideBarTop(),
+            const SideBarTop(),
+            const SizedBox(
+              height: 20,
             ),
-            Expanded(
-              flex: viewModel.sideBarItemsGenerals.length,
-              child: SideBarActionsList(
-                  title: 'GENERAL',
-                  list: SideBarActionsListView(
-                    list: viewModel.sideBarItemsGenerals,
-                  )),
+            SideBarActionsList(
+              title: 'GENERAL',
+              list:
+                  SideBarActionsListView(list: viewModel.sideBarItemsGenerals),
             ),
-            Expanded(
-              flex: viewModel.sideBarItemsQuicks.length,
-              child: SideBarActionsList(
-                  title: 'QUICKS',
-                  list: SideBarActionsListView(
-                    list: viewModel.sideBarItemsQuicks,
-                  )),
+            const SizedBox(
+              height: 20,
             ),
-            Expanded(
-              flex: viewModel.sideBarItemsShortcuts.length,
-              child: SideBarActionsList(
-                  title: 'SHORCUTS',
-                  list: SideBarActionsListView(
-                    list: viewModel.sideBarItemsShortcuts,
-                  )),
+            SideBarActionsList(
+              title: 'QUICKS',
+              list: SideBarActionsListView(list: viewModel.sideBarItemsQuicks),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SideBarActionsList(
+              title: 'SHORCUTS',
+              list:
+                  SideBarActionsListView(list: viewModel.sideBarItemsShortcuts),
             ),
           ],
         ),

@@ -44,7 +44,7 @@ class DashboardView extends StatelessWidget {
             child: const SideBarView(),
           ),
           Expanded(
-            flex: model.isSideBarOpen ? 14 : 22,
+            flex: model.isSideBarOpen ? 14 : 100,
             child: const DashboardMain(),
           ),
         ],
