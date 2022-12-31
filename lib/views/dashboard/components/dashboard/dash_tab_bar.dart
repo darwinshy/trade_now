@@ -20,14 +20,7 @@ class DashboardTabBar extends ViewModelWidget<DashboardViewModel> {
         ),
       ),
       width: width * 0.45,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const DashboardHeadText(),
-          SizedBox(height: height * 0.05),
-          const DashboardTabItems(),
-        ],
-      ),
+      child: const DashboardTabItems(),
     );
   }
 }

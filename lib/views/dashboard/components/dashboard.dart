@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:justanapp/views/dashboard/components/dashboard/dash_chart.dart';
 import 'package:justanapp/views/dashboard/components/dashboard/dash_head_text.dart';
 import 'package:justanapp/views/dashboard/components/dashboard/dash_tab_bar.dart';
 import 'package:justanapp/views/dashboard/components/dashboard/dash_title_bar.dart';
@@ -11,7 +12,6 @@ class DashboardMain extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
-    // double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
     return Expanded(
@@ -23,12 +23,11 @@ class DashboardMain extends ViewModelWidget<DashboardViewModel> {
           children: [
             const DasbboardTitleBar(),
             SizedBox(height: height * 0.04),
-            Flex(
-              direction: Axis.horizontal,
-              children: const [
-                DashboardTabBar(),
-              ],
-            )
+            const DashboardHeadText(),
+            SizedBox(height: height * 0.04),
+            const DashboardTabBar(),
+            SizedBox(height: height * 0.04),
+            const ChartWidget(),
           ],
         ),
       ),

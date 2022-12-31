@@ -4,6 +4,7 @@ import 'package:justanapp/responsive/scaffolds/desktop_scaffold.dart';
 import 'package:justanapp/responsive/scaffolds/mobile_scaffold.dart';
 import 'package:justanapp/responsive/scaffolds/tablet_scaffold.dart';
 import 'package:justanapp/views/dashboard/components/dashboard.dart';
+import 'package:justanapp/views/dashboard/components/dashboard/dash_chart.dart';
 import 'package:justanapp/views/dashboard/components/sidebar.dart';
 import 'package:justanapp/views/dashboard/dash_vm.dart';
 import 'package:stacked/stacked.dart';
@@ -35,12 +36,21 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => DashboardViewModel(),
-      builder: (context, model, _) => Row(
-        children: const [
-          SideBarView(),
-          DashboardMain(),
+      builder: (context, model, _) => Stack(
+        children: [
+          Row(
+            children: const [
+              SideBarView(),
+              DashboardMain(),
+            ],
+          ),
+          if (model.isChartInFullScreen)
+            Container(
+                decoration: const BoxDecoration(color: Colors.white),
+                child: const ChartWidget(isFullScreen: true)),
         ],
       ),
     );

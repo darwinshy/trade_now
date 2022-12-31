@@ -46,7 +46,7 @@ class SideBarActionsListView extends ViewModelWidget<DashboardViewModel> {
         id: list[index]['id'],
         text: list[index]['text'].toString(),
         icon: list[index]['icon'] as IconData,
-        press: (id) => viewModel.updateSideBarItems(id),
+        press: (id) => viewModel.selectSideBarItems(id),
         isSelected: viewModel.sideBarActiveId == list[index]['id'],
       ),
     );

@@ -1,9 +1,62 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:justanapp/models/chart_data.dart';
 import 'package:stacked/stacked.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DashboardViewModel extends BaseViewModel {
   String sideBarActiveId = 'home';
   bool isSideBarOpen = true;
+  bool isChartInFullScreen = false;
+  List<ChartTimeData> chartData = [];
+
+  void toggleFullScreen() {
+    isChartInFullScreen = !isChartInFullScreen;
+    notifyListeners();
+  }
+
+  void toggleSideBarStatus() {
+    isSideBarOpen = !isSideBarOpen;
+    notifyListeners();
+  }
+
+  void selectSideBarItems(String id) {
+    sideBarActiveId = id;
+    notifyListeners();
+  }
+
+  void populateChartData() {
+    chartData.clear();
+    for (int i = 0; i < 100; i++) {
+      chartData.add(ChartTimeData(
+          DateTime(2021, 1, 1).add(Duration(minutes: i)),
+          50 + Random().nextInt(50).toDouble()));
+    }
+    notifyListeners();
+  }
+
+  List<SplineAreaSeries<ChartTimeData, DateTime>> getDefaultLineSeries() {
+    return <SplineAreaSeries<ChartTimeData, DateTime>>[
+      SplineAreaSeries<ChartTimeData, DateTime>(
+          splineType: SplineType.monotonic,
+          gradient: const LinearGradient(colors: <Color>[
+            Color.fromARGB(255, 224, 253, 255),
+            Color.fromARGB(255, 0, 119, 125)
+          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+          enableTooltip: false,
+          animationDuration: 100,
+          dataSource: chartData,
+          xValueMapper: (ChartTimeData sales, _) => sales.x,
+          yValueMapper: (ChartTimeData sales, _) => sales.y,
+          markerSettings: const MarkerSettings(
+            width: 1,
+            height: 1,
+            shape: DataMarkerType.circle,
+            isVisible: true,
+          )),
+    ];
+  }
 
   List<Tab> tabs = const [
     Tab(text: 'Summary'),
@@ -71,14 +124,4 @@ class DashboardViewModel extends BaseViewModel {
       'icon': Icons.link_rounded,
     },
   ];
-
-  void updateSideBarStatus() {
-    isSideBarOpen = !isSideBarOpen;
-    notifyListeners();
-  }
-
-  void updateSideBarItems(String id) {
-    sideBarActiveId = id;
-    notifyListeners();
-  }
 }

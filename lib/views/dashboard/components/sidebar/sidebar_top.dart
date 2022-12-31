@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:justanapp/views/dashboard/dash_vm.dart';
 import 'package:justanapp/widget/button.dart';
+import 'package:stacked/stacked.dart';
 
-class SideBarTop extends StatelessWidget {
+class SideBarTop extends ViewModelWidget<DashboardViewModel> {
   const SideBarTop({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, DashboardViewModel viewModel) {
     return Column(
       children: [
         RichText(
@@ -25,7 +27,10 @@ class SideBarTop extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-        RoundedTextButton(text: 'Quick Invest', press: () {}, isLoading: false),
+        RoundedTextButton(
+            text: 'Quick Invest',
+            press: () => viewModel.populateChartData(),
+            isLoading: false),
       ],
     );
   }
