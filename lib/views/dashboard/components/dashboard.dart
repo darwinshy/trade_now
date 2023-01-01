@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/views/dashboard/components/dashboard/dash_chart.dart';
+import 'package:justanapp/views/dashboard/components/dashboard/dash_body.dart';
 import 'package:justanapp/views/dashboard/components/dashboard/dash_head_text.dart';
-import 'package:justanapp/views/dashboard/components/dashboard/dash_tab_bar.dart';
 import 'package:justanapp/views/dashboard/components/dashboard/dash_title_bar.dart';
 import 'package:justanapp/views/dashboard/dash_vm.dart';
 
@@ -19,15 +18,14 @@ class DashboardMain extends ViewModelWidget<DashboardViewModel> {
         margin: const EdgeInsets.only(right: 15),
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const DasbboardTitleBar(),
             SizedBox(height: height * 0.04),
             const DashboardHeadText(),
             SizedBox(height: height * 0.04),
-            const DashboardTabBar(),
-            SizedBox(height: height * 0.04),
-            const ChartWidget(),
+            const DashboardBody(),
           ],
         ),
       ),

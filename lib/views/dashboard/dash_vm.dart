@@ -2,14 +2,24 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:justanapp/models/chart_data.dart';
+import 'package:justanapp/views/dashboard/components/dashboard/dash_chart.dart';
 import 'package:stacked/stacked.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DashboardViewModel extends BaseViewModel {
   String sideBarActiveId = 'home';
+
   bool isSideBarOpen = true;
   bool isChartInFullScreen = false;
+
   List<ChartTimeData> chartData = [];
+
+  late TabController tabController;
+
+  void initialise(TabController controller) {
+    populateChartData();
+    tabController = controller;
+  }
 
   void toggleFullScreen() {
     isChartInFullScreen = !isChartInFullScreen;
@@ -57,6 +67,14 @@ class DashboardViewModel extends BaseViewModel {
           )),
     ];
   }
+
+  List<Widget> tabViews = const [
+    ChartWidget(),
+    ChartWidget(),
+    ChartWidget(),
+    ChartWidget(),
+    ChartWidget()
+  ];
 
   List<Tab> tabs = const [
     Tab(text: 'Summary'),

@@ -31,13 +31,27 @@ class Dashboard extends StatelessWidget {
   }
 }
 
-class DashboardView extends StatelessWidget {
+class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
 
   @override
+  State<DashboardView> createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 5);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return ViewModelBuilder.reactive(
+      onModelReady: (model) => model.initialise(_tabController),
       viewModelBuilder: () => DashboardViewModel(),
       builder: (context, model, _) => Stack(
         children: [
