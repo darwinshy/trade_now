@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:justanapp/app/app.locator.dart';
 import 'package:justanapp/views/dashboard/dash_v.dart';
-import 'package:justanapp/views/onboarding/onboard_v.dart';
 import 'package:stacked/stacked.dart';
 
 import 'package:stacked_services/stacked_services.dart';

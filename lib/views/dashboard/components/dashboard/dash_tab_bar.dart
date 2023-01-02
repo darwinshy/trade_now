@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justanapp/views/dashboard/components/dashboard/dash_head_text.dart';
 import 'package:justanapp/views/dashboard/components/dashboard/dash_tab_items.dart';
 import 'package:justanapp/views/dashboard/dash_vm.dart';
 import 'package:stacked/stacked.dart';
