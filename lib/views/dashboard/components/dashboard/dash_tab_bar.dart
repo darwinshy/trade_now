@@ -8,8 +8,6 @@ class DashboardTabBar extends ViewModelWidget<DashboardViewModel> {
 
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
-    double width = MediaQuery.of(context).size.width;
-
     return Container(
       decoration: BoxDecoration(
         border: Border(
@@ -17,7 +15,6 @@ class DashboardTabBar extends ViewModelWidget<DashboardViewModel> {
               color: Theme.of(context).primaryColor.withOpacity(0.1)),
         ),
       ),
-      width: width * 0.45,
       child: const DashboardTabItems(),
     );
   }

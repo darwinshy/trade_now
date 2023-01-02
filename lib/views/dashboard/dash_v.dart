@@ -3,7 +3,7 @@ import 'package:justanapp/responsive/responsive_layout.dart';
 import 'package:justanapp/responsive/scaffolds/desktop_scaffold.dart';
 import 'package:justanapp/responsive/scaffolds/mobile_scaffold.dart';
 import 'package:justanapp/responsive/scaffolds/tablet_scaffold.dart';
-import 'package:justanapp/views/dashboard/components/dashboard.dart';
+import 'package:justanapp/views/dashboard/components/home.dart';
 import 'package:justanapp/views/dashboard/components/dashboard/dash_chart.dart';
 import 'package:justanapp/views/dashboard/components/sidebar.dart';
 import 'package:justanapp/views/dashboard/dash_vm.dart';
@@ -58,7 +58,7 @@ class _DashboardViewState extends State<DashboardView>
           Row(
             children: const [
               SideBarView(),
-              DashboardMain(),
+              HomeView(),
             ],
           ),
           if (model.isChartInFullScreen)
