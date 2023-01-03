@@ -8,16 +8,13 @@ class InfoBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return Expanded(
-      flex: 1,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const InfoTab(),
-          SizedBox(height: height * 0.04),
-          const InfoActionTab()
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const InfoTab(),
+        SizedBox(height: height * 0.04),
+        const InfoActionTab()
+      ],
     );
   }
 }

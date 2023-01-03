@@ -8,6 +8,7 @@ class DashboardTabView extends ViewModelWidget<DashboardViewModel> {
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
 
     return Container(
       decoration: BoxDecoration(
@@ -15,6 +16,7 @@ class DashboardTabView extends ViewModelWidget<DashboardViewModel> {
         borderRadius: BorderRadius.circular(4),
       ),
       height: height * 0.5,
+      width: width * 0.5,
       child: TabBarView(
           controller: viewModel.tabController, children: viewModel.tabViews),
     );

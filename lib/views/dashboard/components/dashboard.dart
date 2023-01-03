@@ -10,13 +10,12 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
-    return Row(
+    return Flex(
+      direction: Axis.horizontal,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const DashboardBody(),
-        SizedBox(width: width * 0.04),
-        const InfoBar()
-      ],
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: const [DashboardBody(), InfoBar()],
     );
   }
 }
@@ -27,16 +26,13 @@ class DashboardBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return Expanded(
-      flex: 3,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const DashboardHeadText(),
-          SizedBox(height: height * 0.04),
-          const DashboardTabBody(),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const DashboardHeadText(),
+        SizedBox(height: height * 0.04),
+        const DashboardTabBody(),
+      ],
     );
   }
 }

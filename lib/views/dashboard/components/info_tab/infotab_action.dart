@@ -10,6 +10,7 @@ class InfoActionTab extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Container(
+      width: width * 0.2,
       height: height * 0.4,
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       decoration: BoxDecoration(

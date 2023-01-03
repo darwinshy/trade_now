@@ -11,6 +11,7 @@ class DashboardTabItems extends ViewModelWidget<DashboardViewModel> {
 
     return SizedBox(
       width: width * 0.3,
+      height: 40,
       child: TabBar(controller: viewModel.tabController, tabs: viewModel.tabs),
     );
   }
