@@ -33,6 +33,7 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, model, _) => Container(

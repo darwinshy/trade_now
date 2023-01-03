@@ -83,7 +83,7 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
                         text: 'Sign in',
                         isLoading: false,
                         fontSize: 14,
-                        press: () {}),
+                        press: viewModel.navigateToDashboard),
                     const SizedBox(height: 10),
                     RoundedTextButton(
                       color: Theme.of(context).primaryColor.withOpacity(0.1),

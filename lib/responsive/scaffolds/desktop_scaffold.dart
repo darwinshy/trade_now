@@ -44,8 +44,10 @@ class DesktopScaffold extends StatelessWidget {
         minimum: noSafeAreaMargin != null
             ? EdgeInsets.zero
             : const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        child: SizedBox(
-            height: height ?? cheight, width: width ?? cwidth, child: child),
+        child: Center(
+          child: SizedBox(
+              height: height ?? cheight, width: width ?? cwidth, child: child),
+        ),
       ),
     );
   }
