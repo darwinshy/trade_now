@@ -31,7 +31,6 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
         height: height,
         color: Theme.of(context).primaryColor.withOpacity(0.1),
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
-        margin: const EdgeInsets.only(right: 15),
         child: ListView(
           shrinkWrap: true,
           children: [
