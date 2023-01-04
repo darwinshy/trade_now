@@ -43,7 +43,7 @@ class OnboardingView extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Lottie.asset('assets/images/onboarding.json',
@@ -52,7 +52,7 @@ class OnboardingView extends StatelessWidget {
                   const Text(
                     'Trade stocks, crypto and \nmany more',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 32),
+                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 64),
                   ),
                   const SizedBox(height: 10),
                   Text(

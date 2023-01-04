@@ -19,12 +19,10 @@ class Dashboard extends StatelessWidget {
       mobileScaffold: MobileScaffold(child: DashboardView()),
       desktopScaffold: DesktopScaffold(
           isNoAppBarNoDrawer: true,
-          width: double.infinity,
           noSafeAreaMargin: true,
           child: DashboardView()),
       tabletScaffold: TabletScaffold(
           isNoAppBarNoDrawer: true,
-          width: double.infinity,
           noSafeAreaMargin: true,
           child: DashboardView()),
     );
