@@ -17,7 +17,7 @@ class HomeView extends ViewModelWidget<DashboardViewModel> {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-      width: width * 0.79,
+      width: width * 0.78,
       height: height,
       child: ListView(
         shrinkWrap: true,        
