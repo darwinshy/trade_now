@@ -17,11 +17,10 @@ class HomeView extends ViewModelWidget<DashboardViewModel> {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-      width: width * 0.8,
+      width: width * 0.79,
       height: height,
       child: ListView(
-        shrinkWrap: true,
-        // crossAxisAlignment: CrossAxisAlignment.start,
+        shrinkWrap: true,        
         children: [
           const DasbboardTitleBar(),
           SizedBox(height: height * 0.04),
