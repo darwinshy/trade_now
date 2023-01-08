@@ -23,7 +23,10 @@ class Login extends StatelessWidget {
           height: height * 0.8,
           isDrawerVisible: false,
           child: const LoginView()),
-      tabletScaffold: const TabletScaffold(child: LoginView()),
+      tabletScaffold: TabletScaffold(
+        width: width * 0.8,
+        child: const LoginView(),
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:justanapp/views/dashboard/components/info_tab/infotab_item.dart';
 import 'package:justanapp/widget/button.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class InfoActionTab extends StatelessWidget {
   const InfoActionTab({Key? key}) : super(key: key);
@@ -9,8 +10,10 @@ class InfoActionTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+    bool? isDesktop = ResponsiveWrapper.of(context).isDesktop;
+
     return Container(
-      width: width * 0.2,
+      width: isDesktop ? width * 0.2 : width * 0.4,
       height: height * 0.4,
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       decoration: BoxDecoration(

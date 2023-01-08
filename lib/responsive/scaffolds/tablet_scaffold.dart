@@ -46,8 +46,8 @@ class TabletScaffold extends StatelessWidget {
             ? EdgeInsets.zero
             : const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Center(
-          child: SizedBox(
-              height: cheight, width: width ?? cwidth * 0.8, child: child),
+          child:
+              SizedBox(height: cheight, width: width ?? cwidth, child: child),
         ),
       ),
     );

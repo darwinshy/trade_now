@@ -42,6 +42,7 @@ class App extends StatelessWidget {
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       builder: (context, child) => ResponsiveWrapper.builder(
+        useShortestSide: false,
         defaultScale: true,
         child,
         breakpoints: const [

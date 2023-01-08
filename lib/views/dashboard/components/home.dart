@@ -13,19 +13,19 @@ class HomeView extends ViewModelWidget<DashboardViewModel> {
   Widget build(BuildContext context, DashboardViewModel viewModel) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    bool? isTablet = ResponsiveWrapper.of(context).isTablet;
 
     return Container(
+      width: viewModel.isSideBarOpen ? width * 0.78 : width * 0.98,
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
-      width: width * 0.78,
-      height: height,
-      child: ListView(
-        shrinkWrap: true,        
-        children: [
-          const DasbboardTitleBar(),
-          SizedBox(height: height * 0.04),
-          const Dashboard()
-        ],
+      child: Expanded(
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            const DasbboardTitleBar(),
+            SizedBox(height: height * 0.04),
+            const Dashboard()
+          ],
+        ),
       ),
     );
   }

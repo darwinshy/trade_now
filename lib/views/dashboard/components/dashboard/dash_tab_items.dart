@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:justanapp/views/dashboard/dash_vm.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:stacked/stacked.dart';
 
 class DashboardTabItems extends ViewModelWidget<DashboardViewModel> {
@@ -8,9 +9,9 @@ class DashboardTabItems extends ViewModelWidget<DashboardViewModel> {
   @override
   Widget build(BuildContext context, DashboardViewModel viewModel) {
     double width = MediaQuery.of(context).size.width;
-
+    bool? isDesktop = ResponsiveWrapper.of(context).isDesktop;
     return SizedBox(
-      width: width * 0.3,
+      width: isDesktop ? width * 0.3 : width * 0.6,
       height: 40,
       child: TabBar(controller: viewModel.tabController, tabs: viewModel.tabs),
     );
