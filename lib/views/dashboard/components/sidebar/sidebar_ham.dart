@@ -19,7 +19,7 @@ class HamburgarIcon extends ViewModelWidget<DashboardViewModel> {
                 BorderRadius.circular(viewModel.isSideBarOpen ? 20 : 0)),
         child: IconButton(
           splashRadius: 20,
-          onPressed: viewModel.toggleSideBarStatus,
+          onPressed: viewModel.toggleSideBarVisibility,
           icon: Icon(
               !viewModel.isSideBarOpen
                   ? Icons.arrow_forward_ios_rounded

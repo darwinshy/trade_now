@@ -10,6 +10,7 @@ class DashboardViewModel extends BaseViewModel {
   String sideBarActiveId = 'home';
 
   bool isSideBarOpen = true;
+  bool isSideBarContentVisible = true;
   bool isChartInFullScreen = false;
 
   List<ChartTimeData> chartData = [];
@@ -26,8 +27,18 @@ class DashboardViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void toggleSideBarStatus() {
+  void toggleSideBarVisibility() {
     isSideBarOpen = !isSideBarOpen;
+
+    Duration visibleToggleDuration = isSideBarOpen
+        ? const Duration(milliseconds: 200)
+        : const Duration(milliseconds: 0);
+
+    Future.delayed(visibleToggleDuration, () {
+      isSideBarContentVisible = !isSideBarContentVisible;
+      notifyListeners();
+    });
+
     notifyListeners();
   }
 

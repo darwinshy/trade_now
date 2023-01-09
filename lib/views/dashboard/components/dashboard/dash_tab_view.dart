@@ -11,13 +11,16 @@ class DashboardTabView extends ViewModelWidget<DashboardViewModel> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     bool? isDesktop = ResponsiveWrapper.of(context).isDesktop;
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 100),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor.withOpacity(0.03),
         borderRadius: BorderRadius.circular(4),
       ),
       height: height * 0.5,
-      width: isDesktop ? width * 0.5 : width,
+      width: isDesktop
+          ? (viewModel.isSideBarOpen ? width * 0.5 : width * 0.7)
+          : width,
       child: TabBarView(
           controller: viewModel.tabController, children: viewModel.tabViews),
     );

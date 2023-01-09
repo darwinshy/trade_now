@@ -25,45 +25,41 @@ class SideBar extends ViewModelWidget<DashboardViewModel> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    return AnimatedCrossFade(
-      firstChild: Container(
-        width: width * 0.2,
-        height: height,
-        color: Theme.of(context).primaryColor.withOpacity(0.1),
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            const SideBarTop(),
-            SizedBox(height: height * 0.05),
-            SideBarActionsList(
-              title: 'GENERAL',
-              list:
-                  SideBarActionsListView(list: viewModel.sideBarItemsGenerals),
-            ),
-            SizedBox(height: height * 0.05),
-            SideBarActionsList(
-              title: 'QUICKS',
-              list: SideBarActionsListView(list: viewModel.sideBarItemsQuicks),
-            ),
-            SizedBox(height: height * 0.05),
-            SideBarActionsList(
-              title: 'SHORCUTS',
-              list:
-                  SideBarActionsListView(list: viewModel.sideBarItemsShortcuts),
-            ),
-          ],
-        ),
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOutCubic,
+      width: viewModel.isSideBarOpen ? width * 0.2 : 20,
+      height: height,
+      color: !viewModel.isSideBarOpen
+          ? Colors.transparent
+          : Theme.of(context).primaryColor.withOpacity(0.1),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+      child: ListView(
+        shrinkWrap: true,
+        children: viewModel.isSideBarContentVisible
+            ? [
+                const SideBarTop(),
+                SizedBox(height: height * 0.05),
+                SideBarActionsList(
+                  title: 'GENERAL',
+                  list: SideBarActionsListView(
+                      list: viewModel.sideBarItemsGenerals),
+                ),
+                SizedBox(height: height * 0.05),
+                SideBarActionsList(
+                  title: 'QUICKS',
+                  list: SideBarActionsListView(
+                      list: viewModel.sideBarItemsQuicks),
+                ),
+                SizedBox(height: height * 0.05),
+                SideBarActionsList(
+                  title: 'SHORCUTS',
+                  list: SideBarActionsListView(
+                      list: viewModel.sideBarItemsShortcuts),
+                ),
+              ]
+            : [],
       ),
-      secondChild: SizedBox(width: width * 0.01, height: height),
-      crossFadeState: viewModel.isSideBarOpen
-          ? CrossFadeState.showFirst
-          : CrossFadeState.showSecond,
-      firstCurve: Curves.easeInOutCubic,
-      secondCurve: Curves.easeInOutCubic,
-      sizeCurve: Curves.easeInOutCubic,
-      reverseDuration: const Duration(milliseconds: 500),
-      duration: const Duration(milliseconds: 500),
     );
   }
 }

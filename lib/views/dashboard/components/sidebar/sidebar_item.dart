@@ -33,7 +33,6 @@ class _SideBarItemState extends State<SideBarItem> {
         padding: MaterialStateProperty.all(EdgeInsets.zero),
       ),
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           children: [

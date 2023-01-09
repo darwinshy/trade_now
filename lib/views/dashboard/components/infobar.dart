@@ -9,12 +9,17 @@ class InfoBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool? isDesktop = ResponsiveWrapper.of(context).isDesktop;
+    bool? isMobile =
+        ResponsiveWrapper.of(context).activeBreakpoint.name == MOBILE;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Flex(
-        direction: isDesktop ? Axis.vertical : Axis.horizontal,
+        direction: isDesktop || !isMobile ? Axis.vertical : Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [InfoTab(), InfoActionTab()],
+        children: const [
+          Expanded(child: InfoTab()),
+          Expanded(child: InfoActionTab())
+        ],
       ),
     );
   }
