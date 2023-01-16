@@ -10,7 +10,7 @@ This is a cross-platform app that uses Flutter and MVVM architecture.
 ### Login Screen 
 <br>
 
-<img src="https://user-images.githubusercontent.com/23384886/212734304-701c6dfa-93aa-422f-85c5-71578c977401.gif" width="100%"/>
+<img src="https://user-images.githubusercontent.com/23384886/212740838-2330d848-d828-4144-8c29-0a67e7572075.gif" width="100%"/>
 
 ### Dashboard Screen
 <br>
